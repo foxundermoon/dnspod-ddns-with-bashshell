@@ -2,11 +2,11 @@
 #Github:https://github.com/kkkgo/dnspod-ddns-with-bashshell
 #More: https://03k.org/dnspod-ddns-with-bashshell.html
 #CONF START
-API_ID=12345
-API_Token=abcdefghijklmnopq2333333
-domain=example.com
+API_ID=38272
+API_Token=fa6dca419a64447e4c283bed48706794
+domain=fox.mn
 host=home
-CHECKURL="http://ip.03k.org"
+CHECKURL="http://ip.sb"
 #OUT="pppoe"
 #CONF END
 . /etc/profile
