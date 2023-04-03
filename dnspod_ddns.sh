@@ -1,13 +1,13 @@
 # Dnspod DDNS with BashShell
 # Github:https://github.com/kkkgo/dnspod-ddns-with-bashshell
 # Blog: https://blog.03k.org/post/dnspod-ddns-with-bashshell.html
-# API DOCS : https://docs.dnspod.cn/api/update-dns-records/  
+# API DOCS : https://docs.dnspod.cn/api/update-dns-records/
 #CONF START
-API_ID=123456
-API_Token=abcdefghijklmnopq2333333
+API_ID=139237
+API_Token=c89ead807c0e7fc8e2d94221187f2984
 # myhome.example.com
-domain=example.com
-sub_domain=myhome
+domain=fox.mn
+sub_domain=yxhy
 CHECKURL="http://ipsu.03k.org"
 #OUT="pppoe"
 #CONF END
@@ -67,7 +67,7 @@ if echo $Record|grep -qEo "Operation successful";then
 	echo "IP SAME IN API,SKIP UPDATE."
 	exit
 	fi
-	
+
 # DDNS UPDATE
 	record_id=$(echo $Record|grep -Eo '"records"[:\[{" ]+"id"[:" ]+[0-9]+'|grep -Eo [0-9]+|head -1)
 	record_line_id=$(echo $Record|grep -Eo 'line_id[": ]+[0-9]+'|grep -Eo [0-9]+|head -1)
@@ -76,7 +76,7 @@ if echo $Record|grep -qEo "Operation successful";then
 	ddns_result=$(echo $ddns|grep -Eo 'message[": ]+[A-Za-z0-9. -]+"'|grep -Eo '"[A-Za-z0-9. -]+"')
 	result="DDNS "$ddns_result" - "$HOST"["$record_ip"]->["$(echo $ddns|grep -Eo "$IPREX"|tail -n1)"]"
 else
-    ddns_result=$(echo $Record|grep -Eo 'message[": ]+[A-Za-z0-9. -]+"'|grep -Eo '"[A-Za-z0-9. -]+"')	
+    ddns_result=$(echo $Record|grep -Eo 'message[": ]+[A-Za-z0-9. -]+"'|grep -Eo '"[A-Za-z0-9. -]+"')
 	result="Get "$HOST" error :"$ddns_result
 fi
 echo $result
